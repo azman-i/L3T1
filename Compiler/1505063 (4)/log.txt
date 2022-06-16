@@ -1,0 +1,2407 @@
+line no1type_specifier	: INT
+
+
+
+int
+
+
+line no1 declaration_list : ID
+
+
+
+x
+
+
+line no1 declaration_list : declaration_list COMMA ID
+
+
+
+y
+
+
+
+x,y
+
+
+line no1 declaration_list : declaration_list COMMA ID
+
+
+
+z
+
+
+
+x,y,z
+
+
+line no1 var_declaration : type_specifier declaration_list SEMICOLON
+
+
+
+int x,y,z;
+
+
+
+line no:  1   unit  :  var_declaration
+
+
+
+int x,y,z;
+
+
+
+line no:  1     program : unit
+
+
+
+int x,y,z;
+
+
+
+line no1type_specifier	: FLOAT
+
+
+
+float
+
+
+line no1 declaration_list : ID
+
+
+
+a
+
+
+line no1 var_declaration : type_specifier declaration_list SEMICOLON
+
+
+
+float a;
+
+
+
+line no:  1   unit  :  var_declaration
+
+
+
+float a;
+
+
+
+line no:  1    program: program  unit
+
+
+
+int x,y,z;
+float a;
+
+
+
+line no3type_specifier	: VOID
+
+
+
+void
+
+
+line no:  3   func_declaration :  type_specifier ID LPAREN RPAREN SEMICOLON
+
+
+
+void foo();
+
+
+
+line no:  3    unit   : func_declaration
+
+
+
+void foo();
+
+
+
+line no:  3    program: program  unit
+
+
+
+int x,y,z;
+float a;
+void foo();
+
+
+
+line no5type_specifier	: INT
+
+
+
+int
+
+
+line no5type_specifier	: INT
+
+
+
+int
+
+
+line no:  5parameter_list  : type_specifier ID
+
+
+
+int a
+
+
+line no5type_specifier	: INT
+
+
+
+int
+
+
+line no:  5parameter_list  : parameter_list COMMA type_specifier ID
+
+
+
+int a,int b
+
+
+
+ScopeTable       # 1
+
+0 ->   <b:ID>     
+1 ->   <a:ID>     
+2 ->   
+3 ->   
+4 ->   
+5 ->   
+6 ->   
+
+ScopeTable       # 0
+
+0 ->   
+1 ->   <a:ID>     
+2 ->   
+3 ->   
+4 ->   <z:ID>     
+5 ->   <y:ID>     <foo:ID>     <var:ID>     
+6 ->   <x:ID>     
+line no6variable : ID  
+
+
+
+a
+
+
+line no6 factor  :  variable
+
+
+
+
+
+a
+
+
+line no6unary_expression : factor
+
+
+
+a
+
+
+line no6term : unary_expression
+
+
+
+a
+
+
+line no6simple_expression : term
+
+
+
+a
+
+
+line no6variable : ID  
+
+
+
+b
+
+
+line no6 factor  :  variable
+
+
+
+
+
+b
+
+
+line no6unary_expression : factor
+
+
+
+b
+
+
+line no6term : unary_expression
+
+
+
+b
+
+
+line no6simple_expression : simple_expression ADDOP term
+
+
+
+a+b
+
+
+line no6rel_expression	:  simple_expression 
+
+
+
+a+b
+
+
+line no6logic_expression : rel_expression 
+
+
+
+a+b
+
+
+line no6expression : logic_expression
+
+
+
+a+b
+
+
+
+
+
+
+
+
+line no6  statement  : RETURN expression SEMICOLON 
+
+
+
+return a+b;
+
+
+
+line no:  6statements : statement
+
+
+
+return a+b;
+
+
+
+line no:  7compound_statement : LCURL statements RCURL
+
+
+
+
+{
+return a+b;
+
+}
+
+
+
+
+ScopeTable       # 1
+
+0 ->   <b:ID>     
+1 ->   <a:ID>     
+2 ->   
+3 ->   
+4 ->   
+5 ->   
+6 ->   
+
+ScopeTable       # 0
+
+0 ->   
+1 ->   <a:ID>     
+2 ->   
+3 ->   
+4 ->   <z:ID>     
+5 ->   <y:ID>     <foo:ID>     <var:ID>     
+6 ->   <x:ID>     
+ScopeTable with id     1    removed
+line no:  7   func_definition  :  type_specifier ID LPAREN parameter_list RPAREN compound_statement
+
+
+
+int var(int a,int b)
+{
+return a+b;
+
+}
+
+
+
+line no:  7   unit  : func_definition
+
+
+
+int var(int a,int b)
+{
+return a+b;
+
+}
+
+
+
+line no:  7    program: program  unit
+
+
+
+int x,y,z;
+float a;
+void foo();
+int var(int a,int b)
+{
+return a+b;
+
+}
+
+
+
+line no9type_specifier	: VOID
+
+
+
+void
+
+
+
+ScopeTable       # 1
+
+0 ->   
+1 ->   
+2 ->   
+3 ->   
+4 ->   
+5 ->   
+6 ->   
+
+ScopeTable       # 0
+
+0 ->   
+1 ->   <a:ID>     
+2 ->   
+3 ->   
+4 ->   <z:ID>     
+5 ->   <y:ID>     <foo:ID>     <var:ID>     
+6 ->   <x:ID>     
+line no10variable : ID  
+
+
+
+x
+
+
+line no10 factor  :  CONST_INT
+
+
+2
+
+
+line no10unary_expression : factor
+
+
+
+2
+
+
+line no10term : unary_expression
+
+
+
+2
+
+
+line no10simple_expression : term
+
+
+
+2
+
+
+line no10rel_expression	:  simple_expression 
+
+
+
+2
+
+
+line no10logic_expression : rel_expression 
+
+
+
+2
+
+
+line no10expression :   variable ASSIGNOP logic_expression 
+
+
+
+x=2
+
+
+line no10  expression_statement :expression SEMICOLON
+
+
+
+x=2;
+
+
+
+line no10statement  :  expression_statement
+
+
+
+x=2;
+
+
+
+line no:  10statements : statement
+
+
+
+x=2;
+
+
+
+line no11variable : ID  
+
+
+
+y
+
+
+line no11variable : ID  
+
+
+
+x
+
+
+line no11 factor  :  variable
+
+
+
+
+
+x
+
+
+line no11unary_expression : factor
+
+
+
+x
+
+
+line no11term : unary_expression
+
+
+
+x
+
+
+line no11simple_expression : term
+
+
+
+x
+
+
+line no11 factor  :  CONST_INT
+
+
+5
+
+
+line no11unary_expression : factor
+
+
+
+5
+
+
+line no11term : unary_expression
+
+
+
+5
+
+
+line no11simple_expression : simple_expression ADDOP term
+
+
+
+x-5
+
+
+line no11rel_expression	:  simple_expression 
+
+
+
+x-5
+
+
+line no11logic_expression : rel_expression 
+
+
+
+x-5
+
+
+line no11expression :   variable ASSIGNOP logic_expression 
+
+
+
+y=x-5
+
+
+line no11  expression_statement :expression SEMICOLON
+
+
+
+y=x-5;
+
+
+
+line no11statement  :  expression_statement
+
+
+
+y=x-5;
+
+
+
+line no:  11statements : statements statement
+
+
+
+x=2;
+y=x-5;
+
+
+
+line no:  12compound_statement : LCURL statements RCURL
+
+
+
+
+{
+x=2;
+y=x-5;
+
+}
+
+
+
+
+ScopeTable       # 1
+
+0 ->   
+1 ->   
+2 ->   
+3 ->   
+4 ->   
+5 ->   
+6 ->   
+
+ScopeTable       # 0
+
+0 ->   
+1 ->   <a:ID>     
+2 ->   
+3 ->   
+4 ->   <z:ID>     
+5 ->   <y:ID>     <foo:ID>     <var:ID>     
+6 ->   <x:ID>     
+ScopeTable with id     1    removed
+line no:  12   func_definition  :  type_specifier ID LPAREN RPAREN compound_statement 
+
+
+
+foo
+
+
+
+void foo()
+{
+x=2;
+y=x-5;
+
+}
+
+
+
+line no:  12   unit  : func_definition
+
+
+
+void foo()
+{
+x=2;
+y=x-5;
+
+}
+
+
+
+line no:  12    program: program  unit
+
+
+
+int x,y,z;
+float a;
+void foo();
+int var(int a,int b)
+{
+return a+b;
+
+}
+void foo()
+{
+x=2;
+y=x-5;
+
+}
+
+
+
+line no14type_specifier	: INT
+
+
+
+int
+
+
+
+ScopeTable       # 1
+
+0 ->   
+1 ->   
+2 ->   
+3 ->   
+4 ->   
+5 ->   
+6 ->   
+
+ScopeTable       # 0
+
+0 ->   
+1 ->   <a:ID>     
+2 ->   
+3 ->   
+4 ->   <z:ID>     
+5 ->   <y:ID>     <foo:ID>     <var:ID>     
+6 ->   <x:ID>     <main:ID>     
+line no15type_specifier	: INT
+
+
+
+int
+
+
+line no15 declaration_list : ID LTHIRD CONST_INT RTHIRD
+
+
+
+a[2]
+
+
+line no15 declaration_list : declaration_list COMMA ID
+
+
+
+c
+
+
+
+a[2],c
+
+
+line no15 declaration_list : declaration_list COMMA ID
+
+
+
+i
+
+
+
+a[2],c,i
+
+
+line no15 declaration_list : declaration_list COMMA ID
+
+
+
+j
+
+
+
+a[2],c,i,j
+
+
+line no15 var_declaration : type_specifier declaration_list SEMICOLON
+
+
+
+int a[2],c,i,j;
+
+
+
+line no15 statement  :  var_declaration
+
+
+
+int a[2],c,i,j;
+
+
+
+line no:  15statements : statement
+
+
+
+int a[2],c,i,j;
+
+
+
+line no15type_specifier	: FLOAT
+
+
+
+float
+
+
+line no15 declaration_list : ID
+
+
+
+d
+
+
+line no15 var_declaration : type_specifier declaration_list SEMICOLON
+
+
+
+float d;
+
+
+
+line no15 statement  :  var_declaration
+
+
+
+float d;
+
+
+
+line no:  15statements : statements statement
+
+
+
+int a[2],c,i,j;
+float d;
+
+
+
+line no16 factor  :  CONST_INT
+
+
+0
+
+
+line no16unary_expression : factor
+
+
+
+0
+
+
+line no16term : unary_expression
+
+
+
+0
+
+
+line no16simple_expression : term
+
+
+
+0
+
+
+line no16rel_expression	:  simple_expression 
+
+
+
+0
+
+
+line no16logic_expression : rel_expression 
+
+
+
+0
+
+
+line no16expression : logic_expression
+
+
+
+0
+
+
+
+
+
+int
+
+
+line no16variable :  ID LTHIRD expression RTHIRD
+
+
+
+a[0]
+
+
+line no16 factor  :  CONST_INT
+
+
+1
+
+
+line no16unary_expression : factor
+
+
+
+1
+
+
+line no16term : unary_expression
+
+
+
+1
+
+
+line no16simple_expression : term
+
+
+
+1
+
+
+line no16rel_expression	:  simple_expression 
+
+
+
+1
+
+
+line no16logic_expression : rel_expression 
+
+
+
+1
+
+
+line no16expression :   variable ASSIGNOP logic_expression 
+
+
+
+a[0]=1
+
+
+line no16  expression_statement :expression SEMICOLON
+
+
+
+a[0]=1;
+
+
+
+line no16statement  :  expression_statement
+
+
+
+a[0]=1;
+
+
+
+line no:  16statements : statements statement
+
+
+
+int a[2],c,i,j;
+float d;
+a[0]=1;
+
+
+
+line no17 factor  :  CONST_INT
+
+
+1
+
+
+line no17unary_expression : factor
+
+
+
+1
+
+
+line no17term : unary_expression
+
+
+
+1
+
+
+line no17simple_expression : term
+
+
+
+1
+
+
+line no17rel_expression	:  simple_expression 
+
+
+
+1
+
+
+line no17logic_expression : rel_expression 
+
+
+
+1
+
+
+line no17expression : logic_expression
+
+
+
+1
+
+
+
+
+
+int
+
+
+line no17variable :  ID LTHIRD expression RTHIRD
+
+
+
+a[1]
+
+
+line no17 factor  :  CONST_INT
+
+
+5
+
+
+line no17unary_expression : factor
+
+
+
+5
+
+
+line no17term : unary_expression
+
+
+
+5
+
+
+line no17simple_expression : term
+
+
+
+5
+
+
+line no17rel_expression	:  simple_expression 
+
+
+
+5
+
+
+line no17logic_expression : rel_expression 
+
+
+
+5
+
+
+line no17expression :   variable ASSIGNOP logic_expression 
+
+
+
+a[1]=5
+
+
+line no17  expression_statement :expression SEMICOLON
+
+
+
+a[1]=5;
+
+
+
+line no17statement  :  expression_statement
+
+
+
+a[1]=5;
+
+
+
+line no:  17statements : statements statement
+
+
+
+int a[2],c,i,j;
+float d;
+a[0]=1;
+a[1]=5;
+
+
+
+line no18variable : ID  
+
+
+
+c
+
+
+line no18variable : ID  
+
+
+
+e
+
+
+line no18 factor  :  variable
+
+
+
+
+
+e
+
+
+line no18unary_expression : factor
+
+
+
+e
+
+
+line no18term : unary_expression
+
+
+
+e
+
+
+line no18simple_expression : term
+
+
+
+e
+
+
+line no18rel_expression	:  simple_expression 
+
+
+
+e
+
+
+line no18logic_expression : rel_expression 
+
+
+
+e
+
+
+line no18expression :   variable ASSIGNOP logic_expression 
+
+
+
+c=e
+
+
+line no18  expression_statement :expression SEMICOLON
+
+
+
+c=e;
+
+
+
+line no18statement  :  expression_statement
+
+
+
+c=e;
+
+
+
+line no:  18statements : statements statement
+
+
+
+int a[2],c,i,j;
+float d;
+a[0]=1;
+a[1]=5;
+c=e;
+
+
+
+line no19variable : ID  
+
+
+
+i
+
+
+line no19 factor  :  CONST_INT
+
+
+0
+
+
+line no19unary_expression : factor
+
+
+
+0
+
+
+line no19term : unary_expression
+
+
+
+0
+
+
+line no19simple_expression : term
+
+
+
+0
+
+
+line no19rel_expression	:  simple_expression 
+
+
+
+0
+
+
+line no19logic_expression : rel_expression 
+
+
+
+0
+
+
+line no19expression : logic_expression
+
+
+
+0
+
+
+
+
+
+int
+
+
+line no19variable :  ID LTHIRD expression RTHIRD
+
+
+
+a[0]
+
+
+line no19 factor  :  variable
+
+
+
+
+
+a[0]
+
+
+line no19unary_expression : factor
+
+
+
+a[0]
+
+
+line no19term : unary_expression
+
+
+
+a[0]
+
+
+line no19simple_expression : term
+
+
+
+a[0]
+
+
+line no19 factor  :  CONST_INT
+
+
+1
+
+
+line no19unary_expression : factor
+
+
+
+1
+
+
+line no19term : unary_expression
+
+
+
+1
+
+
+line no19simple_expression : term
+
+
+
+1
+
+
+line no19rel_expression	:  simple_expression 
+
+
+
+1
+
+
+line no19logic_expression : rel_expression 
+
+
+
+1
+
+
+line no19expression : logic_expression
+
+
+
+1
+
+
+
+
+
+int
+
+
+line no19variable :  ID LTHIRD expression RTHIRD
+
+
+
+a[1]
+
+
+line no19 factor  :  variable
+
+
+
+
+
+a[1]
+
+
+line no19unary_expression : factor
+
+
+
+a[1]
+
+
+line no19term : unary_expression
+
+
+
+a[1]
+
+
+line no19simple_expression : simple_expression ADDOP term
+
+
+
+a[0]+a[1]
+
+
+line no19rel_expression	:  simple_expression 
+
+
+
+a[0]+a[1]
+
+
+line no19logic_expression : rel_expression 
+
+
+
+a[0]+a[1]
+
+
+line no19expression :   variable ASSIGNOP logic_expression 
+
+
+
+i=a[0]+a[1]
+
+
+line no19  expression_statement :expression SEMICOLON
+
+
+
+i=a[0]+a[1];
+
+
+
+line no19statement  :  expression_statement
+
+
+
+i=a[0]+a[1];
+
+
+
+line no:  19statements : statements statement
+
+
+
+int a[2],c,i,j;
+float d;
+a[0]=1;
+a[1]=5;
+c=e;
+i=a[0]+a[1];
+
+
+
+line no20variable : ID  
+
+
+
+j
+
+
+line no20 factor  :  CONST_INT
+
+
+2
+
+
+line no20unary_expression : factor
+
+
+
+2
+
+
+line no20term : unary_expression
+
+
+
+2
+
+
+line no20 factor  :  CONST_INT
+
+
+3
+
+
+line no20unary_expression : factor
+
+
+
+3
+
+
+line no20term : term MULOP unary_expression
+
+
+
+int
+
+
+line no20simple_expression : term
+
+
+
+2*3
+
+
+line no20variable : ID  
+
+
+
+c
+
+
+line no20 factor  :  variable
+
+
+
+
+
+c
+
+
+line no20unary_expression : factor
+
+
+
+c
+
+
+line no20term : unary_expression
+
+
+
+c
+
+
+line no20variable : ID  
+
+
+
+j
+
+
+line no20 factor  :  variable
+
+
+
+
+
+j
+
+
+line no20unary_expression : factor
+
+
+
+j
+
+
+line no20term : term MULOP unary_expression
+
+
+
+int
+
+
+line no20simple_expression : term
+
+
+
+c%j
+
+
+line no20rel_expression	:  simple_expression 
+
+
+
+c%j
+
+
+line no20logic_expression : rel_expression 
+
+
+
+c%j
+
+
+line no20expression : logic_expression
+
+
+
+c%j
+
+
+
+
+
+int
+
+
+line no20 factor  :  LPAREN expression RPAREN
+
+
+
+(c%j)
+
+
+line no20unary_expression : factor
+
+
+
+(c%j)
+
+
+line no20term : unary_expression
+
+
+
+(c%j)
+
+
+line no20 factor  :  CONST_INT
+
+
+3
+
+
+line no20unary_expression : factor
+
+
+
+3
+
+
+line no20term : term MULOP unary_expression
+
+
+
+int
+
+
+line no20simple_expression : term
+
+
+
+(c%j)%3
+
+
+line no20rel_expression	:  simple_expression 
+
+
+
+(c%j)%3
+
+
+line no20logic_expression : rel_expression 
+
+
+
+(c%j)%3
+
+
+line no20expression : logic_expression
+
+
+
+(c%j)%3
+
+
+
+
+
+int
+
+
+line no20 factor  :  LPAREN expression RPAREN
+
+
+
+((c%j)%3)
+
+
+line no20unary_expression : factor
+
+
+
+((c%j)%3)
+
+
+line no20term : unary_expression
+
+
+
+((c%j)%3)
+
+
+line no20 factor  :  CONST_FLOAT
+
+
+
+3.5
+
+
+line no20unary_expression : factor
+
+
+
+3.5
+
+
+line no20term : term MULOP unary_expression
+
+
+
+float
+
+
+line no20simple_expression : term
+
+
+
+((c%j)%3)%3.5
+
+
+line no20rel_expression	:  simple_expression 
+
+
+
+((c%j)%3)%3.5
+
+
+line no20logic_expression : rel_expression 
+
+
+
+((c%j)%3)%3.5
+
+
+line no20expression : logic_expression
+
+
+
+((c%j)%3)%3.5
+
+
+
+
+
+float
+
+
+line no20 factor  :  LPAREN expression RPAREN
+
+
+
+(((c%j)%3)%3.5)
+
+
+line no20unary_expression : factor
+
+
+
+(((c%j)%3)%3.5)
+
+
+line no20term : unary_expression
+
+
+
+(((c%j)%3)%3.5)
+
+
+line no20simple_expression : term
+
+
+
+(((c%j)%3)%3.5)
+
+
+line no20 factor  :  CONST_INT
+
+
+4
+
+
+line no20unary_expression : factor
+
+
+
+4
+
+
+line no20term : unary_expression
+
+
+
+4
+
+
+line no20simple_expression : term
+
+
+
+4
+
+
+line no20rel_expression	:  simple_expression RELOP simple_expression 
+
+
+
+(((c%j)%3)%3.5)<4
+
+
+line no20 factor  :  CONST_INT
+
+
+8
+
+
+line no20unary_expression : factor
+
+
+
+8
+
+
+line no20term : unary_expression
+
+
+
+8
+
+
+line no20simple_expression : term
+
+
+
+8
+
+
+line no20rel_expression	:  simple_expression 
+
+
+
+8
+
+
+line no20logic_expression :  rel_expression LOGICOP rel_expression 
+
+
+
+(((c%j)%3)%3.5)<4&&8
+
+
+line no20expression : logic_expression
+
+
+
+(((c%j)%3)%3.5)<4&&8
+
+
+
+
+
+int
+
+
+line no20 factor  :  LPAREN expression RPAREN
+
+
+
+((((c%j)%3)%3.5)<4&&8)
+
+
+line no20unary_expression : factor
+
+
+
+((((c%j)%3)%3.5)<4&&8)
+
+
+line no20term : unary_expression
+
+
+
+((((c%j)%3)%3.5)<4&&8)
+
+
+line no20simple_expression : simple_expression ADDOP term
+
+
+
+2*3+((((c%j)%3)%3.5)<4&&8)
+
+
+line no20rel_expression	:  simple_expression 
+
+
+
+2*3+((((c%j)%3)%3.5)<4&&8)
+
+
+line no20 factor  :  CONST_INT
+
+
+2
+
+
+line no20unary_expression : factor
+
+
+
+2
+
+
+line no20term : unary_expression
+
+
+
+2
+
+
+line no20simple_expression : term
+
+
+
+2
+
+
+line no20rel_expression	:  simple_expression 
+
+
+
+2
+
+
+line no20logic_expression :  rel_expression LOGICOP rel_expression 
+
+
+
+2*3+((((c%j)%3)%3.5)<4&&8))2
+
+
+line no20expression :   variable ASSIGNOP logic_expression 
+
+
+
+j=2*3+((((c%j)%3)%3.5)<4&&8))2
+
+
+line no20  expression_statement :expression SEMICOLON
+
+
+
+j=2*3+((((c%j)%3)%3.5)<4&&8))2;
+
+
+
+line no20statement  :  expression_statement
+
+
+
+j=2*3+((((c%j)%3)%3.5)<4&&8))2;
+
+
+
+line no:  20statements : statements statement
+
+
+
+int a[2],c,i,j;
+float d;
+a[0]=1;
+a[1]=5;
+c=e;
+i=a[0]+a[1];
+j=2*3+((((c%j)%3)%3.5)<4&&8))2;
+
+
+
+line no21variable : ID  
+
+
+
+d
+
+
+line no21 factor  :  CONST_INT
+
+
+1
+
+
+line no21unary_expression : factor
+
+
+
+1
+
+
+line no21term : unary_expression
+
+
+
+1
+
+
+line no21simple_expression : term
+
+
+
+1
+
+
+line no21rel_expression	:  simple_expression 
+
+
+
+1
+
+
+line no21logic_expression : rel_expression 
+
+
+
+1
+
+
+line no21 arguments : logic_expression
+
+
+
+1
+
+
+line no21 factor  :  CONST_INT
+
+
+2
+
+
+line no21unary_expression : factor
+
+
+
+2
+
+
+line no21term : unary_expression
+
+
+
+2
+
+
+line no21 factor  :  CONST_INT
+
+
+3
+
+
+line no21unary_expression : factor
+
+
+
+3
+
+
+line no21term : term MULOP unary_expression
+
+
+
+int
+
+
+line no21simple_expression : term
+
+
+
+2*3
+
+
+line no21rel_expression	:  simple_expression 
+
+
+
+2*3
+
+
+line no21logic_expression : rel_expression 
+
+
+
+2*3
+
+
+line no21 factor  : arguments COMMA logic_expression
+
+
+
+1,2*3
+
+
+line no21 argument_list : arguments
+
+
+
+1,2*3
+
+
+line no21 factor : ID LPAREN argument_list RPAREN
+
+
+
+var(1,2*3)
+
+
+line no21unary_expression : factor
+
+
+
+var(1,2*3)
+
+
+line no21term : unary_expression
+
+
+
+var(1,2*3)
+
+
+line no21simple_expression : term
+
+
+
+var(1,2*3)
+
+
+line no21 factor  :  CONST_FLOAT
+
+
+
+3.5
+
+
+line no21unary_expression : factor
+
+
+
+3.5
+
+
+line no21term : unary_expression
+
+
+
+3.5
+
+
+line no21 factor  :  CONST_INT
+
+
+2
+
+
+line no21unary_expression : factor
+
+
+
+2
+
+
+line no21term : term MULOP unary_expression
+
+
+
+float
+
+
+line no21simple_expression : simple_expression ADDOP term
+
+
+
+var(1,2*3)+3.5*2
+
+
+line no21rel_expression	:  simple_expression 
+
+
+
+var(1,2*3)+3.5*2
+
+
+line no21logic_expression : rel_expression 
+
+
+
+var(1,2*3)+3.5*2
+
+
+line no21expression :   variable ASSIGNOP logic_expression 
+
+
+
+d=var(1,2*3)+3.5*2
+
+
+line no21  expression_statement :expression SEMICOLON
+
+
+
+d=var(1,2*3)+3.5*2;
+
+
+
+line no21statement  :  expression_statement
+
+
+
+d=var(1,2*3)+3.5*2;
+
+
+
+line no:  21statements : statements statement
+
+
+
+int a[2],c,i,j;
+float d;
+a[0]=1;
+a[1]=5;
+c=e;
+i=a[0]+a[1];
+j=2*3+((((c%j)%3)%3.5)<4&&8))2;
+d=var(1,2*3)+3.5*2;
+
+
+
+line no22 factor  :  CONST_INT
+
+
+0
+
+
+line no22unary_expression : factor
+
+
+
+0
+
+
+line no22term : unary_expression
+
+
+
+0
+
+
+line no22simple_expression : term
+
+
+
+0
+
+
+line no22rel_expression	:  simple_expression 
+
+
+
+0
+
+
+line no22logic_expression : rel_expression 
+
+
+
+0
+
+
+line no22expression : logic_expression
+
+
+
+0
+
+
+
+
+
+int
+
+
+line no22  statement  : RETURN expression SEMICOLON 
+
+
+
+return 0;
+
+
+
+line no:  22statements : statements statement
+
+
+
+int a[2],c,i,j;
+float d;
+a[0]=1;
+a[1]=5;
+c=e;
+i=a[0]+a[1];
+j=2*3+((((c%j)%3)%3.5)<4&&8))2;
+d=var(1,2*3)+3.5*2;
+return 0;
+
+
+
+line no:  23compound_statement : LCURL statements RCURL
+
+
+
+
+{
+int a[2],c,i,j;
+float d;
+a[0]=1;
+a[1]=5;
+c=e;
+i=a[0]+a[1];
+j=2*3+((((c%j)%3)%3.5)<4&&8))2;
+d=var(1,2*3)+3.5*2;
+return 0;
+
+}
+
+
+
+
+ScopeTable       # 1
+
+0 ->   <i:ID>     
+1 ->   <a:ID>     
+2 ->   
+3 ->   
+4 ->   
+5 ->   <d:ID>     
+6 ->   <c:ID>     <j:ID>     
+
+ScopeTable       # 0
+
+0 ->   
+1 ->   <a:ID>     
+2 ->   
+3 ->   
+4 ->   <z:ID>     
+5 ->   <y:ID>     <foo:ID>     <var:ID>     
+6 ->   <x:ID>     <main:ID>     
+ScopeTable with id     1    removed
+line no:  23   func_definition  :  type_specifier ID LPAREN RPAREN compound_statement 
+
+
+
+main
+
+
+
+int main()
+{
+int a[2],c,i,j;
+float d;
+a[0]=1;
+a[1]=5;
+c=e;
+i=a[0]+a[1];
+j=2*3+((((c%j)%3)%3.5)<4&&8))2;
+d=var(1,2*3)+3.5*2;
+return 0;
+
+}
+
+
+
+line no:  23   unit  : func_definition
+
+
+
+int main()
+{
+int a[2],c,i,j;
+float d;
+a[0]=1;
+a[1]=5;
+c=e;
+i=a[0]+a[1];
+j=2*3+((((c%j)%3)%3.5)<4&&8))2;
+d=var(1,2*3)+3.5*2;
+return 0;
+
+}
+
+
+
+line no:  23    program: program  unit
+
+
+
+int x,y,z;
+float a;
+void foo();
+int var(int a,int b)
+{
+return a+b;
+
+}
+void foo()
+{
+x=2;
+y=x-5;
+
+}
+int main()
+{
+int a[2],c,i,j;
+float d;
+a[0]=1;
+a[1]=5;
+c=e;
+i=a[0]+a[1];
+j=2*3+((((c%j)%3)%3.5)<4&&8))2;
+d=var(1,2*3)+3.5*2;
+return 0;
+
+}
+
+
+

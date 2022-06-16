@@ -1,0 +1,120 @@
+.MODEL SMALL
+.STACK 100H
+.DATA
+  retu DW ?
+a1     DW   ?
+b1     DW   ?
+d1     DW   ?
+c1     DW   ?
+e1     DW  10   DUP(?)
+t0   DW ?
+t1   DW ?
+f2     DW   ?
+t2   DW ?
+t3   DW ?
+.CODE
+OUTDEC PROC
+;INPUT AX
+PUSH AX
+PUSH BX
+PUSH CX
+PUSH DX
+OR AX,AX
+JGE @END_IF1
+PUSH AX
+MOV DL,'-'
+MOV AH,2
+INT 21H
+POP AX
+NEG AX
+
+@END_IF1:
+XOR CX,CX
+MOV BX,10D
+
+@REPEAT1:
+XOR DX,DX
+DIV BX
+PUSH DX
+INC CX
+OR AX,AX
+JNE @REPEAT1
+
+MOV AH,2
+
+@PRINT_LOOP:
+
+POP DX
+OR DL,30H
+INT 21H
+LOOP @PRINT_LOOP
+
+POP DX
+POP CX
+POP BX
+POP AX
+RET
+OUTDEC ENDP
+
+ FOO  PROC
+MOV retu,1
+
+RET 
+FOO  ENDP
+MAIN  PROC
+MOV AX, @DATA
+MOV DS, AX
+MOV  AX,3
+MOV  b1,  AX
+MOV  AX,5
+MOV  c1,  AX
+  MOV AL,2
+MOV BL,3
+MUL BL
+MOV t0,AX
+MOV  AX,t0
+MOV  b1,  AX
+MOV AX,b1
+call outdec
+MOV AX,b1
+MOV BX,7
+CMP AX,BX
+JGE  Label0
+MOV t1,1
+JMP Label1
+Label0:
+MOV  t1,0
+Label1:
+
+CMP t1,1
+JE   Label2
+JMP  Label3
+Label2:
+call    foo
+MOV  AX,retu
+MOV  f2,  AX
+MOV AX,f2
+call outdec
+  call    foo
+MOV AX,retu
+call    foo
+MOV BX,retu
+SUB AX,BX
+MOV t2,AX
+MOV  AX,t2
+MOV  f2,  AX
+MOV AX,f2
+call outdec
+  MOV AX,b1
+MOV BX,3
+ADD AX,BX
+MOV t3,AX
+MOV  AX,t3
+MOV  b1,  AX
+
+Label3:
+MAIN  ENDP
+
+MOV AH, 4CH
+INT 21H
+END MAIN

@@ -1,0 +1,3 @@
+line no     18Variable not declared
+line no    20Both operand of modulus operator should be integer.
+intfloat

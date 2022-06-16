@@ -1,0 +1,41 @@
+Line no 1: TOKEN <INT> Lexeme int found
+Line no 1: TOKEN <ID> Lexeme main found
+Line no 1: TOKEN <LPAREN,(> Lexeme ( found
+Line no 1: TOKEN <RPAREN,)> Lexeme ) found
+Line no 1: TOKEN <LCURL,{> Lexeme { found
+Line no 2: TOKEN <INT> Lexeme int found
+Line no 2: TOKEN <ID> Lexeme a found
+Line no 2: TOKEN <COMMA,,> Lexeme , found
+Line no 2: TOKEN <ID> Lexeme b found
+Line no 2: TOKEN <SEMICOLON,;> Lexeme ; found
+Line no 3: TOKEN <ID> Lexeme a found
+Line no 3: TOKEN <ASSIGNOP> Lexeme = found
+Line no 3: TOKEN <ID> Lexeme a found
+Line no 3: TOKEN <FLOATINGPOINT,+1> Lexeme +1 found
+Line no 3: TOKEN <SEMICOLON,;> Lexeme ; found
+Line no 4: TOKEN <CHAR> Lexeme char found
+Line no 4: TOKEN <ID> Lexeme ch found
+Line no 4: TOKEN <ASSIGNOP> Lexeme = found
+Line no 4: TOKEN <CHARACTER> Lexeme 'a' found
+Line no 4: TOKEN <SEMICOLON,;> Lexeme ; found
+Line no 5: TOKEN <ID> Lexeme ch found
+Line no 5: TOKEN <ASSIGNOP> Lexeme = found
+Line no 5: TOKEN <CHARACTER> Lexeme '\t' found
+Line no 5: TOKEN <SEMICOLON,;> Lexeme ; found
+Line no 6: TOKEN <CHAR> Lexeme char found
+Line no 6: TOKEN <ID> Lexeme c found
+Line no 6: TOKEN <LTHIRD,[> Lexeme [ found
+Line no 6: TOKEN <RTHIRD,]> Lexeme ] found
+Line no 6: TOKEN <ASSIGNOP> Lexeme = found
+Line no 6: TOKEN <STRING,ab	dl> Lexeme ab	dl found
+Line no 6: TOKEN <SEMICOLON,;> Lexeme ; found
+Line no 7: TOKEN <ID> Lexeme printf found
+Line no 7: TOKEN <LPAREN,(> Lexeme ( found
+Error at Line no 7: Unfinished string "abc\
+def\
+ghi");
+// a comment
+/** another
+*** comment ***/
+	return 0;
+ found

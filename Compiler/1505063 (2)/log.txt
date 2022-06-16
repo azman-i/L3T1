@@ -1,0 +1,1484 @@
+line on        :     1           type_specifier	: INT
+
+
+
+int
+
+
+hello
+
+ScopeTable       # 1
+
+0 ->   
+1 ->   
+2 ->   
+3 ->   
+4 ->   
+5 ->   
+6 ->   
+hhhhhhhh
+
+ScopeTable       # 0
+
+0 ->   
+1 ->   
+2 ->   
+3 ->   
+4 ->   
+5 ->   <foo:ID>     
+6 ->   
+hhhhhhhh
+hhhhhhhh2
+here
+line on        :     3            factor  :  CONST_INT
+
+
+1
+
+
+line on        :     3           unary_expression : factor
+coc
+
+
+
+1
+
+
+line on        :     3           term : unary_expression
+cte
+
+
+
+1
+
+
+line on        :     3           simple_expression : term
+coc
+
+
+
+1
+
+
+line on        :     3           rel_expression	:  simple_expression 
+
+
+
+1
+
+
+line on        :     3           logic_expression : rel_expression 
+
+
+
+1
+
+
+line on        :     3           expression : logic_expression
+
+
+
+1
+
+
+line on        :     3             statement  : RETURN expression SEMICOLON 
+
+
+
+return 1;
+
+
+
+line no:  3           statements : statement
+
+
+
+return 1;
+
+
+
+line no:  4           compound_statement : LCURL statements RCURL
+jjjretu
+
+
+
+
+{
+return 1;
+
+}
+
+
+
+
+ScopeTable       # 1
+
+0 ->   
+1 ->   
+2 ->   
+3 ->   
+4 ->   
+5 ->   
+6 ->   
+hhhhhhhh
+
+ScopeTable       # 0
+
+0 ->   
+1 ->   
+2 ->   
+3 ->   
+4 ->   
+5 ->   <foo:ID>     
+6 ->   
+hhhhhhhh
+hhhhhhhh2
+ScopeTable with id     1    removed
+line no:  4              func_definition  :  type_specifier ID LPAREN RPAREN compound_statement 
+kkkretu
+FOO  PROC
+MOV retu,1
+
+RET 
+FOO  ENDP
+
+
+
+
+int foo()
+{
+return 1;
+
+}
+
+
+
+line no:  4              unit  : func_definition
+
+
+
+int foo()
+{
+return 1;
+
+}
+
+
+
+line no:  4                program : unit
+
+
+
+int foo()
+{
+return 1;
+
+}
+
+
+
+line on        :     5           type_specifier	: INT
+
+
+
+int
+
+
+hello
+
+ScopeTable       # 1
+
+0 ->   
+1 ->   
+2 ->   
+3 ->   
+4 ->   
+5 ->   
+6 ->   
+hhhhhhhh
+
+ScopeTable       # 0
+
+0 ->   
+1 ->   
+2 ->   
+3 ->   
+4 ->   
+5 ->   <foo:ID>     
+6 ->   <main:ID>     
+hhhhhhhh
+hhhhhhhh2
+here
+line on        :     6           type_specifier	: INT
+
+
+
+int
+
+
+line on        :     6            declaration_list : ID
+
+
+
+a
+
+
+line on        :     6            declaration_list : declaration_list COMMA ID
+
+
+
+a,b
+
+
+line on        :     6            declaration_list : declaration_list COMMA ID
+
+
+
+a,b,d
+
+
+line on        :     6            declaration_list : declaration_list COMMA ID
+
+
+
+a,b,d,c
+
+
+line on        :     6            declaration_list : declaration_list COMMA ID LTHIRD CONST_INT RTHIRD
+
+
+
+a,b,d,c,e[10]
+
+
+line on        :     6            var_declaration : type_specifier declaration_list SEMICOLON
+
+
+
+int a,b,d,c,e[10];
+
+
+
+line on        :     6            statement  :  var_declaration
+
+
+
+int a,b,d,c,e[10];
+
+
+
+line no:  6           statements : statement
+
+
+
+int a,b,d,c,e[10];
+
+
+
+line on        :     7           variable : ID  
+0
+here1
+yes1
+
+
+
+b
+
+
+line on        :     7            factor  :  CONST_INT
+
+
+3
+
+
+line on        :     7           unary_expression : factor
+coc
+
+
+
+3
+
+
+line on        :     7           term : unary_expression
+cte
+
+
+
+3
+
+
+line on        :     7           simple_expression : term
+coc
+
+
+
+3
+
+
+line on        :     7           rel_expression	:  simple_expression 
+
+
+
+3
+
+
+line on        :     7           logic_expression : rel_expression 
+
+
+
+3
+
+
+line on        :     7           expression :   variable ASSIGNOP logic_expression 
+yes1
+cdde
+
+
+
+b=3
+
+
+line on        :     7             expression_statement :expression SEMICOLON
+MOV  AX,3
+MOV  b1,  AX
+code
+
+
+
+b=3;
+
+
+
+line on        :     7           statement  :  expression_statement
+
+
+
+b=3;
+
+
+
+line no:  7           statements : statements statement
+
+
+
+int a,b,d,c,e[10];
+b=3;
+
+
+
+line on        :     8           variable : ID  
+0
+here1
+yes1
+
+
+
+c
+
+
+line on        :     8            factor  :  CONST_INT
+
+
+5
+
+
+line on        :     8           unary_expression : factor
+coc
+
+
+
+5
+
+
+line on        :     8           term : unary_expression
+cte
+
+
+
+5
+
+
+line on        :     8           simple_expression : term
+coc
+
+
+
+5
+
+
+line on        :     8           rel_expression	:  simple_expression 
+
+
+
+5
+
+
+line on        :     8           logic_expression : rel_expression 
+
+
+
+5
+
+
+line on        :     8           expression :   variable ASSIGNOP logic_expression 
+yes1
+cdde
+
+
+
+c=5
+
+
+line on        :     8             expression_statement :expression SEMICOLON
+MOV  AX,5
+MOV  c1,  AX
+code
+
+
+
+c=5;
+
+
+
+line on        :     8           statement  :  expression_statement
+
+
+
+c=5;
+
+
+
+line no:  8           statements : statements statement
+
+
+
+int a,b,d,c,e[10];
+b=3;
+c=5;
+
+
+
+line on        :     9           variable : ID  
+0
+here1
+yes1
+
+
+
+b
+
+
+line on        :     9            factor  :  CONST_INT
+
+
+2
+
+
+line on        :     9           unary_expression : factor
+coc
+
+
+
+2
+
+
+line on        :     9           term : unary_expression
+cte
+
+
+
+2
+
+
+line on        :     9            factor  :  CONST_INT
+
+
+3
+
+
+line on        :     9           unary_expression : factor
+coc
+
+
+
+3
+
+
+line on        :     9           term : term MULOP unary_expression
+mulop  MOV AL,2
+MOV BL,3
+MUL BL
+MOV t0,AX
+
+
+
+
+int
+
+
+line on        :     9           simple_expression : term
+coc  MOV AL,2
+MOV BL,3
+MUL BL
+MOV t0,AX
+
+
+
+
+2*3
+
+
+line on        :     9           rel_expression	:  simple_expression 
+
+
+
+2*3
+
+
+line on        :     9           logic_expression : rel_expression 
+
+
+
+2*3
+
+
+line on        :     9           expression :   variable ASSIGNOP logic_expression 
+yes1
+cdde  MOV AL,2
+MOV BL,3
+MUL BL
+MOV t0,AX
+
+
+
+
+b=2*3
+
+
+line on        :     9             expression_statement :expression SEMICOLON
+  MOV AL,2
+MOV BL,3
+MUL BL
+MOV t0,AX
+MOV  AX,t0
+MOV  b1,  AX
+code
+
+
+
+b=2*3;
+
+
+
+line on        :     9           statement  :  expression_statement
+
+
+
+b=2*3;
+
+
+
+line no:  9           statements : statements statement
+
+
+
+int a,b,d,c,e[10];
+b=3;
+c=5;
+b=2*3;
+
+
+
+yes1
+line no:  10           statements : statements statement
+
+
+
+int a,b,d,c,e[10];
+b=3;
+c=5;
+b=2*3;
+;
+
+
+line on        :     11           variable : ID  
+0
+here1
+yes1
+
+
+
+b
+
+
+line on        :     11            factor  :  variable
+
+
+
+
+
+b
+
+
+line on        :     11           unary_expression : factor
+coc
+
+
+
+b
+
+
+line on        :     11           term : unary_expression
+cte
+
+
+
+b
+
+
+line on        :     11           simple_expression : term
+coc
+
+
+
+b
+
+
+line on        :     11            factor  :  CONST_INT
+
+
+7
+
+
+line on        :     11           unary_expression : factor
+coc
+
+
+
+7
+
+
+line on        :     11           term : unary_expression
+cte
+
+
+
+7
+
+
+line on        :     11           simple_expression : term
+coc
+
+
+
+7
+
+
+line on        :     11           rel_expression	:  simple_expression RELOP simple_expression 
+
+
+
+b<7
+
+
+line on        :     11           logic_expression : rel_expression 
+
+
+
+b<7
+
+
+line on        :     11           expression : logic_expression
+
+
+
+b<7
+
+
+hello
+
+ScopeTable       # 2
+
+0 ->   
+1 ->   
+2 ->   
+3 ->   
+4 ->   
+5 ->   
+6 ->   
+hhhhhhhh
+
+ScopeTable       # 1
+
+0 ->   <b:ID>     
+1 ->   <a:ID>     
+2 ->   
+3 ->   
+4 ->   <e:ID>     
+5 ->   <d:ID>     
+6 ->   <c:ID>     
+hhhhhhhh
+
+ScopeTable       # 0
+
+0 ->   
+1 ->   
+2 ->   
+3 ->   
+4 ->   
+5 ->   <foo:ID>     
+6 ->   <main:ID>     
+hhhhhhhh
+hhhhhhhh2
+here
+line on        :     13           type_specifier	: INT
+
+
+
+int
+
+
+line on        :     13            declaration_list : ID
+
+
+
+f
+
+
+line on        :     13            var_declaration : type_specifier declaration_list SEMICOLON
+
+
+
+int f;
+
+
+
+line on        :     13            statement  :  var_declaration
+
+
+
+int f;
+
+
+
+line no:  13           statements : statement
+
+
+
+int f;
+
+
+
+line on        :     14           variable : ID  
+0
+here1
+0
+here1
+yes2
+
+
+
+f
+
+
+
+
+
+
+
+
+line on        :     14            factor : ID LPAREN argument_list RPAREN
+kkkkkcall    foo
+
+
+
+
+foo()
+
+
+line on        :     14           unary_expression : factor
+coccall    foo
+
+
+
+
+foo()
+
+
+line on        :     14           term : unary_expression
+ctecall    foo
+
+
+
+
+foo()
+
+
+line on        :     14           simple_expression : term
+coccall    foo
+
+
+
+
+foo()
+
+
+line on        :     14           rel_expression	:  simple_expression 
+
+
+
+foo()
+
+
+line on        :     14           logic_expression : rel_expression 
+
+
+
+foo()
+
+
+line on        :     14           expression :   variable ASSIGNOP logic_expression 
+yes2
+cddecall    foo
+
+
+
+
+f=foo()
+
+
+line on        :     14             expression_statement :expression SEMICOLON
+call    foo
+MOV  AX,retu
+MOV  f2,  AX
+code
+
+
+
+f=foo();
+
+
+
+line on        :     14           statement  :  expression_statement
+
+
+
+f=foo();
+
+
+
+line no:  14           statements : statements statement
+
+
+
+int f;
+f=foo();
+
+
+
+yes2
+line no:  15           statements : statements statement
+
+
+
+int f;
+f=foo();
+;
+
+
+line on        :     16           variable : ID  
+0
+here1
+0
+here1
+yes2
+
+
+
+f
+
+
+
+
+
+
+
+
+line on        :     16            factor : ID LPAREN argument_list RPAREN
+kkkkkcall    foo
+
+
+
+
+foo()
+
+
+line on        :     16           unary_expression : factor
+coccall    foo
+
+
+
+
+foo()
+
+
+line on        :     16           term : unary_expression
+ctecall    foo
+
+
+
+
+foo()
+
+
+line on        :     16           simple_expression : term
+coccall    foo
+
+
+
+
+foo()
+
+
+
+
+
+
+
+
+line on        :     16            factor : ID LPAREN argument_list RPAREN
+kkkkkcall    foo
+
+
+
+
+foo()
+
+
+line on        :     16           unary_expression : factor
+coccall    foo
+
+
+
+
+foo()
+
+
+line on        :     16           term : unary_expression
+ctecall    foo
+
+
+
+
+foo()
+
+
+line on        :     16           simple_expression : simple_expression ADDOP term
+getstrfoo()foo()
+
+
+
+foo()-foo()
+
+
+line on        :     16           rel_expression	:  simple_expression 
+
+
+
+foo()-foo()
+
+
+line on        :     16           logic_expression : rel_expression 
+
+
+
+foo()-foo()
+
+
+line on        :     16           expression :   variable ASSIGNOP logic_expression 
+yes2
+cdde  call    foo
+MOV AX,retu
+call    foo
+MOV BX,retu
+SUB AX,BX
+MOV t2,AX
+
+
+
+
+f=foo()-foo()
+
+
+line on        :     16             expression_statement :expression SEMICOLON
+  call    foo
+MOV AX,retu
+call    foo
+MOV BX,retu
+SUB AX,BX
+MOV t2,AX
+MOV  AX,t2
+MOV  f2,  AX
+code
+
+
+
+f=foo()-foo();
+
+
+
+line on        :     16           statement  :  expression_statement
+
+
+
+f=foo()-foo();
+
+
+
+line no:  16           statements : statements statement
+
+
+
+int f;
+f=foo();
+;f=foo()-foo();
+
+
+
+yes2
+line no:  17           statements : statements statement
+
+
+
+int f;
+f=foo();
+;f=foo()-foo();
+;
+
+
+line on        :     18           variable : ID  
+0
+here1
+0
+here1
+yes1
+
+
+
+b
+
+
+line on        :     18           variable : ID  
+0
+here1
+0
+here1
+yes1
+
+
+
+b
+
+
+line on        :     18            factor  :  variable
+
+
+
+
+
+b
+
+
+line on        :     18           unary_expression : factor
+coc
+
+
+
+b
+
+
+line on        :     18           term : unary_expression
+cte
+
+
+
+b
+
+
+line on        :     18           simple_expression : term
+coc
+
+
+
+b
+
+
+line on        :     18            factor  :  CONST_INT
+
+
+3
+
+
+line on        :     18           unary_expression : factor
+coc
+
+
+
+3
+
+
+line on        :     18           term : unary_expression
+cte
+
+
+
+3
+
+
+line on        :     18           simple_expression : simple_expression ADDOP term
+getstrb3
+
+
+
+b+3
+
+
+line on        :     18           rel_expression	:  simple_expression 
+
+
+
+b+3
+
+
+line on        :     18           logic_expression : rel_expression 
+
+
+
+b+3
+
+
+line on        :     18           expression :   variable ASSIGNOP logic_expression 
+yes1
+cdde  MOV AX,b1
+MOV BX,3
+ADD AX,BX
+MOV t3,AX
+
+
+
+
+b=b+3
+
+
+line on        :     18             expression_statement :expression SEMICOLON
+  MOV AX,b1
+MOV BX,3
+ADD AX,BX
+MOV t3,AX
+MOV  AX,t3
+MOV  b1,  AX
+code
+
+
+
+b=b+3;
+
+
+
+line on        :     18           statement  :  expression_statement
+
+
+
+b=b+3;
+
+
+
+line no:  18           statements : statements statement
+
+
+
+int f;
+f=foo();
+;f=foo()-foo();
+;b=b+3;
+
+
+
+line no:  19           compound_statement : LCURL statements RCURL
+jjj
+
+
+
+
+{
+int f;
+f=foo();
+;f=foo()-foo();
+;b=b+3;
+
+}
+
+
+
+
+ScopeTable       # 2
+
+0 ->   
+1 ->   
+2 ->   
+3 ->   <f:ID>     
+4 ->   
+5 ->   
+6 ->   
+hhhhhhhh
+
+ScopeTable       # 1
+
+0 ->   <b:ID>     
+1 ->   <a:ID>     
+2 ->   
+3 ->   
+4 ->   <e:ID>     
+5 ->   <d:ID>     
+6 ->   <c:ID>     
+hhhhhhhh
+
+ScopeTable       # 0
+
+0 ->   
+1 ->   
+2 ->   
+3 ->   
+4 ->   
+5 ->   <foo:ID>     
+6 ->   <main:ID>     
+hhhhhhhh
+hhhhhhhh2
+ScopeTable with id     2    removed
+line no:  19            statement  :  compound_statement
+
+
+
+
+{
+int f;
+f=foo();
+;f=foo()-foo();
+;b=b+3;
+
+}
+
+
+
+line on        :     21            statement : IF LPAREN expression RPAREN statement
+
+
+
+if(b<7)
+{
+int f;
+f=foo();
+;f=foo()-foo();
+;b=b+3;
+
+}
+
+
+
+line no:  21           statements : statements statement
+
+
+
+int a,b,d,c,e[10];
+b=3;
+c=5;
+b=2*3;
+;if(b<7)
+{
+int f;
+f=foo();
+;f=foo()-foo();
+;b=b+3;
+
+}
+
+
+
+line no:  21           compound_statement : LCURL statements RCURL
+jjj
+
+
+
+
+{
+int a,b,d,c,e[10];
+b=3;
+c=5;
+b=2*3;
+;if(b<7)
+{
+int f;
+f=foo();
+;f=foo()-foo();
+;b=b+3;
+
+}
+
+}
+
+
+
+
+ScopeTable       # 1
+
+0 ->   <b:ID>     
+1 ->   <a:ID>     
+2 ->   
+3 ->   
+4 ->   <e:ID>     
+5 ->   <d:ID>     
+6 ->   <c:ID>     
+hhhhhhhh
+
+ScopeTable       # 0
+
+0 ->   
+1 ->   
+2 ->   
+3 ->   
+4 ->   
+5 ->   <foo:ID>     
+6 ->   <main:ID>     
+hhhhhhhh
+hhhhhhhh2
+ScopeTable with id     1    removed
+line no:  21              func_definition  :  type_specifier ID LPAREN RPAREN compound_statement 
+kkk
+MAIN  PROC
+MOV AX, @DATA
+MOV DS, AX
+MOV  AX,3
+MOV  b1,  AX
+MOV  AX,5
+MOV  c1,  AX
+  MOV AL,2
+MOV BL,3
+MUL BL
+MOV t0,AX
+MOV  AX,t0
+MOV  b1,  AX
+MOV AX,b1
+call outdec
+MOV AX,b1
+MOV BX,7
+CMP AX,BX
+JGE  Label0
+MOV t1,1
+JMP Label1
+Label0:
+MOV  t1,0
+Label1:
+
+CMP t1,1
+JE   Label2
+JMP  Label3
+Label2:
+call    foo
+MOV  AX,retu
+MOV  f2,  AX
+MOV AX,f2
+call outdec
+  call    foo
+MOV AX,retu
+call    foo
+MOV BX,retu
+SUB AX,BX
+MOV t2,AX
+MOV  AX,t2
+MOV  f2,  AX
+MOV AX,f2
+call outdec
+  MOV AX,b1
+MOV BX,3
+ADD AX,BX
+MOV t3,AX
+MOV  AX,t3
+MOV  b1,  AX
+
+Label3:
+MAIN  ENDP
+
+
+
+
+int main()
+{
+int a,b,d,c,e[10];
+b=3;
+c=5;
+b=2*3;
+;if(b<7)
+{
+int f;
+f=foo();
+;f=foo()-foo();
+;b=b+3;
+
+}
+
+}
+
+
+
+line no:  21              unit  : func_definition
+
+
+
+int main()
+{
+int a,b,d,c,e[10];
+b=3;
+c=5;
+b=2*3;
+;if(b<7)
+{
+int f;
+f=foo();
+;f=foo()-foo();
+;b=b+3;
+
+}
+
+}
+
+
+
+line no:  21               program: program  unit
+
+
+
+int foo()
+{
+return 1;
+
+}
+int main()
+{
+int a,b,d,c,e[10];
+b=3;
+c=5;
+b=2*3;
+;if(b<7)
+{
+int f;
+f=foo();
+;f=foo()-foo();
+;b=b+3;
+
+}
+
+}
+
+
+
+start : program
